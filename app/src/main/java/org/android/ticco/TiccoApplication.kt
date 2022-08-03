@@ -1,4 +1,4 @@
-package com.android.ticco
+package org.android.ticco
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

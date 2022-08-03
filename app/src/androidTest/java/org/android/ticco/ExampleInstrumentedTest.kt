@@ -1,4 +1,4 @@
-package com.android.ticco
+package org.android.ticco
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

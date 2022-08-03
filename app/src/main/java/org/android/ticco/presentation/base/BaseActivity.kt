@@ -1,4 +1,4 @@
-package com.android.ticco.presentation.base
+package org.android.ticco.presentation.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes

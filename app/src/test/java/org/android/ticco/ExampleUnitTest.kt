@@ -1,4 +1,4 @@
-package com.android.ticco
+package org.android.ticco
 
 import org.junit.Test
 
