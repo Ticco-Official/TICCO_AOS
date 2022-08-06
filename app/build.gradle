@@ -80,4 +80,7 @@ dependencies {
 
     // viewpager indicator
     implementation "com.tbuonomo:dotsindicator:4.3"
+
+    // kakao login
+    implementation "com.kakao.sdk:v2-user:2.11.0"
 }
