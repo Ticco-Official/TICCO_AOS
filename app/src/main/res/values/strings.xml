@@ -9,4 +9,5 @@
     <string name="onboarding_image_one">onboarding_image_one</string>
     <string name="onboarding_image_two">onboarding_image_two</string>
     <string name="onboarding_image_three">onboarding_image_three</string>
+    <string name="onboarding_btn_kakao_login">onboarding_btn_kakao_login</string>
 </resources>
