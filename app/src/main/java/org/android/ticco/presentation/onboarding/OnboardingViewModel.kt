@@ -15,15 +15,10 @@ class OnboardingViewModel @Inject constructor(
     private val requestLoginUseCase: RequestLoginUseCase
 ) : ViewModel() {
 
-    private val _isLoggedIn: MutableStateFlow<Boolean> = MutableStateFlow(false)
-    val isLoggedIn: StateFlow<Boolean> = _isLoggedIn
+    private val _isLoggedIn: MutableStateFlow<Boolean?> = MutableStateFlow(null)
+    val isLoggedIn: StateFlow<Boolean?> = _isLoggedIn
 
     fun requestLogin(body: AuthRequest) = viewModelScope.launch {
-        val response = requestLoginUseCase(body = body)
-        if (response.accessToken != null) {
-            _isLoggedIn.emit(true)
-        } else {
-            _isLoggedIn.emit(false)
-        }
+        _isLoggedIn.emit(requestLoginUseCase(body))
     }
 }

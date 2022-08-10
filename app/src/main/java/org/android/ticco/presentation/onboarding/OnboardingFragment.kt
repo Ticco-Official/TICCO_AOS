@@ -77,8 +77,8 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(R.layout.frag
 
     private fun collectFlow() {
         lifecycleScope.launchWhenCreated {
-            viewModel.isLoggedIn.collectLatest {
-                Log.d("로그인성공", it.toString())
+            viewModel.isLoggedIn.collect {
+                Log.d("온보딩", it.toString())
             }
         }
     }
