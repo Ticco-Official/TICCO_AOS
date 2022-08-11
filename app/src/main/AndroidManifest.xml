@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="org.android.ticco">
 
+    <uses-sdk tools:overrideLibrary="com.kakao.sdk:v2-user:2.11.0"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name=".TiccoApplication"
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+        android:name=".TiccoApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -15,13 +18,31 @@
         android:theme="@style/Theme.Ticco"
         tools:targetApi="31">
         <activity
-            android:name="org.android.ticco.MainActivity"
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:launchMode="singleTask"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="@string/kakao_redirection_scheme" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".presentation.splash.SplashActivity"
+            android:theme="@style/SplashTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="org.android.ticco.MainActivity"
+            android:exported="true">
         </activity>
     </application>
 
