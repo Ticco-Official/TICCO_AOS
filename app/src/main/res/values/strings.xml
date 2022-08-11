@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Ticco</string>
-
+    
     <!-- OnBoarding -->
     <string name="onboarding_message_one">영화, 전시회, 뮤지컬 등\n기록하고싶은 티켓이 있나요?</string>
     <string name="onboarding_message_two">사진과 글로 나만의 티켓을\n기록할 수 있어요.</string>
@@ -18,4 +18,10 @@
     <string name="join_camera">join_camera</string>
     <string name="join_nickname_hint">닉네임을 6자 이내로 입력해주세요</string>
     <string name="join_btn_start">시작하기</string>
+    
+    <!-- Home -->
+    <string name="home_all">전체</string>
+    <string name="home_sort_latest">최신순</string>
+    <string name="home_ticket">티켓 만들기</string>
+    
 </resources>

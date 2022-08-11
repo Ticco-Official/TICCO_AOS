@@ -2,6 +2,7 @@ package org.android.ticco
 
 import android.app.Application
 import com.kakao.sdk.common.KakaoSdk
+import androidx.appcompat.app.AppCompatDelegate
 import dagger.hilt.android.HiltAndroidApp
 import org.android.ticco.data.datasource.local.SharedPreferences
 
@@ -15,5 +16,7 @@ class TiccoApplication: Application() {
         super.onCreate()
         preferences = SharedPreferences(applicationContext)
         KakaoSdk.init(this, getString(R.string.kakao_native_app_key))
+        
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
