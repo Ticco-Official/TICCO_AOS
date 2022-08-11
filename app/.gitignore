@@ -121,6 +121,9 @@ atlassian-ide-plugin.xml
 # Mongo Explorer plugin
 .idea/mongoSettings.xml
 
+# kakaologin
+src/main/res/values/kakao_strings.xml
+
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
@@ -132,3 +135,4 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.gitignore.io/api/androidstudio
+
