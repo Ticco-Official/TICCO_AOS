@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pageMargin">62dp</dimen>
+    <dimen name="pageHeight">451dp</dimen>
+    <dimen name="screenHeight">120dp</dimen>
+</resources>
