@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.android.ticco.databinding.ItemTicketBinding
 
-class TicketVpAdapter(idolList: ArrayList<Int>) :
+class TicketVpAdapter :
     RecyclerView.Adapter<TicketVpAdapter.PagerViewHolder>() {
-    var item = idolList
+
+    var item = ArrayList<Int>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerViewHolder {
         val binding =

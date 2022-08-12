@@ -1,7 +1,28 @@
 <resources>
     <string name="app_name">Ticco</string>
+
+    <!-- OnBoarding -->
+    <string name="onboarding_message_one">영화, 전시회, 뮤지컬 등\n기록하고싶은 티켓이 있나요?</string>
+    <string name="onboarding_message_two">사진과 글로 나만의 티켓을\n기록할 수 있어요.</string>
+    <string name="onboarding_message_three">나만의 기억을 더욱 의미있게.\n티켓 커스텀, 티코와 함께해요</string>
+    <string name="onboarding_image_one">onboarding_image_one</string>
+    <string name="onboarding_image_two">onboarding_image_two</string>
+    <string name="onboarding_image_three">onboarding_image_three</string>
+    <string name="onboarding_btn_kakao_login">onboarding_btn_kakao_login</string>
+
+    <!-- Join -->
+    <string name="join_back">join_back</string>
+    <string name="join_title">프로필을 완성해주세요</string>
+    <string name="join_sub_title">나를 표현하는 프로필 사진과 닉네임을 설정해주세요</string>
+    <string name="join_profile">join_profile</string>
+    <string name="join_camera">join_camera</string>
+    <string name="join_nickname_hint">닉네임을 6자 이내로 입력해주세요</string>
+    <string name="join_btn_start">시작하기</string>
+
+    <!-- Home -->
     <string name="home_all">전체</string>
     <string name="home_sort_latest">최신순</string>
     <string name="home_ticket">티켓 만들기</string>
+    <string name="home_empty">티코가 처음이시군요!\n최근에 즐긴 문화생활이 있다면\n티코에서 나만의 티켓을 만들어봐요!</string>
 
 </resources>

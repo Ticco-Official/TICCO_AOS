@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="vm"
+            type="org.android.ticco.presentation.home.HomeViewModel" />
 
     </data>
 
@@ -83,17 +86,17 @@
             app:layout_constraintTop_toBottomOf="@id/iv_empty"
             app:layout_constraintStart_toStartOf="@id/iv_empty"
             app:layout_constraintEnd_toEndOf="@id/iv_empty"
-            android:textAlignment="center"
+            app:textAlignment="center"
             android:layout_marginTop="36dp"/>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_ticket"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:clipToPadding="false"
-            android:clipChildren="false"
             android:layout_marginHorizontal="36dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="24dp"
+            app:clipChildren="false"
+            android:clipToPadding="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
