@@ -1,6 +1,5 @@
 package org.android.ticco.presentation.home
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,6 @@ import org.android.ticco.presentation.base.BaseFragment
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     private val homeViewModel: HomeViewModel by viewModels()
-    private val ticketVpAdapter = TicketVpAdapter()
     private val ticketPagingAdapter = TicketPagingAdapter()
 
     override fun initView() {
@@ -34,11 +32,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         lifecycleScope.launch {
             homeViewModel.requestTickets().collectLatest {
                 ticketPagingAdapter.submitData(it)
-                Log.d("TAG", "initTicketData: ${it}")
             }
-
         }
-
     }
 
     private fun initTicketViewPager() {
@@ -57,6 +52,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
         }
     }
-
 
 }
