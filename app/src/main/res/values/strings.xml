@@ -24,5 +24,19 @@
     <string name="home_sort_latest">최신순</string>
     <string name="home_ticket">티켓 만들기</string>
     <string name="home_empty">티코가 처음이시군요!\n최근에 즐긴 문화생활이 있다면\n티코에서 나만의 티켓을 만들어봐요!</string>
-
+    <!-- MyPage -->
+    <string name="mypage_title">마이페이지</string>
+    <string name="mypage_edit">내 정보 수정하기</string>
+    <string name="mypage_nickname">닉네임</string>
+    <string name="mypage_save">저장하기</string>
+    <string name="mypage_no_change">변경사항이 없어요</string>
+    <string name="mypage_problem">문제가 생기셨나요?\n빠르게 해결해드릴게요</string>
+    <string name="mypage_problem_time">운영시간 : 평일 10:00 - 18:00\n주말 및 공휴일은 휴무입니다.</string>
+    <string name="mypage_inquire">1 :1 채팅 문의 시작하기</string>
+    <string name="mypage_service">고객센터</string>
+    <string name="mypage_tos">서비스 이용약관</string>
+    <string name="mypage_version_title">버전정보</string>
+    <string name="mypage_confirm">확인</string>
+    <string name="mypage_version_description">현재 최신버전 사용 중입니다</string>
+    <string name="mypage_version">최신버전 1.1</string>
 </resources>

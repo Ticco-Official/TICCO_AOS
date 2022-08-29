@@ -2,6 +2,7 @@ package org.android.ticco.presentation.home
 
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,9 +20,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun initView() {
         binding.vm = homeViewModel
-        initTicketData()
+        setListeners()
+        //initTicketData()
         initTicketViewPager()
-        initTicketObserver()
+        //initTicketObserver()
+    }
+
+    private fun setListeners() {
+        binding.ivMypage.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_myPageFragment) }
     }
 
     private fun initTicketData() {
