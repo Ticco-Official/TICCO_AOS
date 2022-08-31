@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="user"
-            type="org.android.ticco.domain.model.User" />
+            name="vm"
+            type="org.android.ticco.presentation.mypage.MyPageViewModel" />
 
     </data>
 
@@ -42,7 +42,7 @@
             android:id="@+id/iv_profile"
             android:layout_width="68dp"
             android:layout_height="68dp"
-            android:setProfileImage="@{user.profile}"
+            android:profileImgUri="@{vm.profileImgUri}"
             android:src="@drawable/ic_profile_circle"
             app:layout_constraintTop_toBottomOf="@id/iv_back"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
             app:layout_constraintStart_toEndOf="@id/iv_profile"
             android:layout_marginStart="16dp"
             tools:text="asdfafd님"
-            android:text="@{user.nickname+`님`}"/>
+            android:text="@{vm.nickname+`님`}"/>
 
         <TextView
             android:layout_width="wrap_content"

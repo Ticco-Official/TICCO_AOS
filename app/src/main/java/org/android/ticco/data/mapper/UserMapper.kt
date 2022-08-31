@@ -4,6 +4,6 @@ import org.android.ticco.data.datasource.remote.BasicResponse
 import org.android.ticco.data.datasource.remote.user.model.UserResponse
 import org.android.ticco.domain.model.User
 
-fun UserResponse.Data.toEntity():User = User(nickname = this.nickname.toString(), profile = this.profileImageUrl.toString())
+fun UserResponse.toEntity():User = User(nickname = data.nickname, profile = data.profileImageUrl)
 
 fun BasicResponse.getSuccess():Boolean = success

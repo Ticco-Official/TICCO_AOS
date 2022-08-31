@@ -13,6 +13,7 @@ class MyPageFragment : BaseFragment<FragmentMyPageBinding>(R.layout.fragment_my_
     private val myPageViewModel: MyPageViewModel by viewModels()
 
     override fun initView() {
+        binding.vm = myPageViewModel
         setUserInfo()
         setListeners()
     }

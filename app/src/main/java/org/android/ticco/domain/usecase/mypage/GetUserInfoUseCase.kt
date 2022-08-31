@@ -10,5 +10,7 @@ class GetUserInfoUseCase @Inject constructor(
     private val userRepository: UserRepository
 ) {
 
-    suspend fun getUserInfo():User = userRepository.onBoardingRequest()
+    suspend fun getUserInfo(): User {
+        return userRepository.onBoardingRequest()
+    }
 }

@@ -7,7 +7,7 @@ data class UserResponse(
     val success: Boolean
 ) {
     data class Data(
-        val nickname: Any,
-        val profileImageUrl: Any
+        val nickname: String,
+        val profileImageUrl: String
     )
 }

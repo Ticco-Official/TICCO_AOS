@@ -1,11 +1,11 @@
 package org.android.ticco.data.datasource.remote.user
 
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.android.ticco.data.datasource.remote.BasicResponse
 import org.android.ticco.data.datasource.remote.user.model.UserResponse
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.PUT
-import retrofit2.http.Query
+import retrofit2.http.*
+import java.io.File
 
 
 interface UserApiService {
@@ -16,10 +16,11 @@ interface UserApiService {
     @GET("/v1/user/onboarding")
     suspend fun onboardingRequest(): UserResponse
 
-    @PUT("/v1/user/onboarding?image=&nickname=")
+    @Multipart
+    @PUT("/v1/user/onboarding")
     suspend fun onboardingPost(
-        @Query("image") image: String?,
-        @Query("nickname") nickname: String
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part image: MultipartBody.Part?
     ): BasicResponse
 
 }

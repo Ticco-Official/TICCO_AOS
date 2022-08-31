@@ -1,4 +1,4 @@
-package org.android.ticco.presentation.utils
+package org.android.ticco.presentation.util
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
