@@ -6,7 +6,7 @@ import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
 import org.android.ticco.data.datasource.remote.ticket.model.TicketDto
 import org.android.ticco.domain.datasource.remote.TicketRemoteDataSource
-import org.android.ticco.presentation.utils.TicketPagingSource
+import org.android.ticco.presentation.util.TicketPagingSource
 import javax.inject.Inject
 
 class TicketRemoteDataSourceImpl @Inject constructor(
