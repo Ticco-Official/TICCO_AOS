@@ -6,11 +6,11 @@ import retrofit2.http.Query
 
 interface TicketApiService {
 
-    @GET("v1/ticket?category=&page=&size=&sort=")
+    @GET("v1/ticket")
     suspend fun getTickets(
         @Query("category") category: String?,
-        @Query("page") page:Int =0,
-        @Query("size") size:Int = 3,
+        @Query("page") page:Int=0,
+        @Query("size") size:Int=1,
         @Query("sort") sort: String
     ): TicketResponse
 }

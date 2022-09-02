@@ -9,6 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import org.android.ticco.domain.model.Ticket
 import org.android.ticco.domain.usecase.ticket.GetTicketsUserCase
+import org.android.ticco.presentation.util.Event
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,6 +18,7 @@ class HomeViewModel @Inject constructor(
 ) : ViewModel() {
 
     val category = MutableLiveData<String>()
+    var isEmptyTicket = MutableLiveData<Event<Boolean>>()
 
     fun requestTickets(): Flow<PagingData<Ticket>> =
         ticketsUserCase.getTickets(category.value, 1, arrayOf("createdAt", DESC))
