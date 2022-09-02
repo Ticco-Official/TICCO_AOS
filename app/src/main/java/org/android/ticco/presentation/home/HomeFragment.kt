@@ -1,16 +1,21 @@
 package org.android.ticco.presentation.home
 
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.paging.map
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.launch
 import org.android.ticco.R
 import org.android.ticco.databinding.FragmentHomeBinding
 import org.android.ticco.presentation.base.BaseFragment
+import org.android.ticco.presentation.util.Event
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -21,9 +26,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initView() {
         binding.vm = homeViewModel
         setListeners()
-        //initTicketData()
+        initTicketData()
         initTicketViewPager()
-        //initTicketObserver()
+        initTicketObserver()
     }
 
     private fun setListeners() {
@@ -35,9 +40,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     }
 
     private fun initTicketObserver() {
-        lifecycleScope.launch {
+        viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.requestTickets().collectLatest {
                 ticketPagingAdapter.submitData(it)
+            }
+            ticketPagingAdapter.loadStateFlow.collect {
+                homeViewModel.isEmptyTicket.postValue(if(ticketPagingAdapter.snapshot().size==0) Event(true) else Event(false))
             }
         }
     }

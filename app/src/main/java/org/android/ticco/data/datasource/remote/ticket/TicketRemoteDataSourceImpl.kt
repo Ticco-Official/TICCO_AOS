@@ -21,7 +21,7 @@ class TicketRemoteDataSourceImpl @Inject constructor(
         Pager(
             config = PagingConfig(pageSize = size, enablePlaceholders = false),
             pagingSourceFactory = {
-                TicketPagingSource(category = category, size = size, sort = sort, service)
+                TicketPagingSource(category = category, sort = sort, service)
             }
         ).flow
 

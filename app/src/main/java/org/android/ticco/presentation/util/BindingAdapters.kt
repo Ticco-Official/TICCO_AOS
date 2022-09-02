@@ -20,4 +20,16 @@ object BindingAdapters{
 
     }
 
+    @JvmStatic
+    @BindingAdapter("android:ticketImgUri")
+    fun ImageView.setTicketImg(imgUri: String?) {
+        Glide.with(this.context)
+            .load(imgUri)
+            .placeholder(R.drawable.img_welcome)
+            .error(R.drawable.img_welcome)
+            .circleCrop()
+            .into(this)
+
+    }
+
 }

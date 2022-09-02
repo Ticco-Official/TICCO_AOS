@@ -14,7 +14,9 @@
         <entry key="app/src/main/res/layout/fragment_my_page_service.xml" value="0.3578125" />
         <entry key="app/src/main/res/layout/fragment_my_page_tos.xml" value="0.34375" />
         <entry key="app/src/main/res/layout/fragment_my_page_version.xml" value="0.3578125" />
+        <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/layout/fragment_onboarding_one.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/layout/item_ticket.xml" value="0.3729166666666667" />
       </map>
     </option>
   </component>

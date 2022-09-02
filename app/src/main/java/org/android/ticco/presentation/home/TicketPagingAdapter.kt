@@ -16,6 +16,7 @@ class TicketPagingAdapter :
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(ticket: Ticket) {
             binding.ticket = ticket
+            binding.executePendingBindings()
         }
     }
 
