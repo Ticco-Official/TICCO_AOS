@@ -14,7 +14,7 @@ import org.android.ticco.presentation.base.BaseFragment
 class ExistingUserFragment : BaseFragment<FragmentExistingUserBinding>(R.layout.fragment_existing_user) {
 
     override fun initView() {
-        TODO("Not yet implemented")
+
     }
 
 }
