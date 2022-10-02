@@ -33,7 +33,9 @@
         android:label="ExistingUserFragment" >
         <action
             android:id="@+id/action_existingUserFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -42,7 +44,10 @@
         android:label="JoinFragment" >
         <action
             android:id="@+id/action_joinFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
