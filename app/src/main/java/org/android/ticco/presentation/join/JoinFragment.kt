@@ -1,10 +1,12 @@
 package org.android.ticco.presentation.join
 
+import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -53,13 +55,21 @@ class JoinFragment : BaseFragment<FragmentJoinBinding>(R.layout.fragment_join) {
                 viewModel.isSuccess.collectLatest {
                     when(it) {
                         true -> {
-                            // move to main
+                            val action = JoinFragmentDirections.actionJoinFragmentToHomeFragment()
+                            requireView().findNavController().navigate(action)
                         }
                         false -> {
-                            // error dialog
+                            Toast.makeText(requireContext(), "다시 시도해주세요.", Toast.LENGTH_SHORT).show()
                         }
                         else -> {}
                     }
+                }
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.RESUMED) {
+                viewModel.nickname.collectLatest {
+                    binding.btnStart.isEnabled = it.isNotEmpty()
                 }
             }
         }

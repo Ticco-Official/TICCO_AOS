@@ -30,12 +30,20 @@
     <fragment
         android:id="@+id/existingUserFragment"
         android:name="org.android.ticco.presentation.join.ExistingUserFragment"
-        android:label="ExistingUserFragment" />
+        android:label="ExistingUserFragment" >
+        <action
+            android:id="@+id/action_existingUserFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/joinFragment"
         android:name="org.android.ticco.presentation.join.JoinFragment"
-        android:label="JoinFragment" />
+        android:label="JoinFragment" >
+        <action
+            android:id="@+id/action_joinFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/homeFragment"
