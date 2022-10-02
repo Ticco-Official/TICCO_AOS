@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="org.android.ticco.presentation.mypage.MyPageViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.mypage.MyPageEditInfoFragment">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_left_mono"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="36dp"
+            android:layout_marginStart="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mypage_edit"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:fontFamily="@font/pretendard_medium"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toTopOf="@id/iv_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/iv_back"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_profile"
+            android:profileImgUri="@{vm.profileImgUri}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/iv_back"
+            android:layout_marginTop="59dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_profile_circle"/>
+
+        <ImageView
+            android:id="@+id/iv_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera_circle"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_profile"
+            app:layout_constraintEnd_toEndOf="@+id/iv_profile"/>
+
+        <TextView
+            android:id="@+id/tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mypage_nickname"
+            android:textColor="@color/ticco_midgrey2"
+            android:textSize="16dp"
+            android:fontFamily="@font/pretendard_regular"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toBottomOf="@id/iv_profile"
+            android:layout_marginTop="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="22dp"/>
+
+        <EditText
+            android:id="@+id/et_nickname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_nickname"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:maxLength="5"
+            android:textSize="20dp"
+            android:background="@null"
+            android:fontFamily="@font/pretendard_medium"
+            android:includeFontPadding="false"
+            android:text="@={vm.nickname}"
+            app:layout_constraintStart_toStartOf="@id/tv_nickname"
+            app:layout_constraintEnd_toStartOf="@id/iv_clear"
+            android:layout_marginEnd="8dp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/et_nickname"
+            app:layout_constraintStart_toStartOf="@id/et_nickname"
+            app:layout_constraintEnd_toEndOf="@id/iv_clear"
+            android:layout_marginTop="8dp"/>
+
+        <ImageView
+            android:id="@+id/iv_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_x_circle_black"
+            android:onClick="@{()->vm.setNicknameClear()}"
+            app:layout_constraintTop_toTopOf="@id/et_nickname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/et_nickname"
+            android:layout_marginEnd="30dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mypage_no_change"
+            app:layout_constraintBottom_toTopOf="@+id/btn_save"
+            app:layout_constraintStart_toStartOf="@+id/btn_save"
+            app:layout_constraintEnd_toEndOf="@id/btn_save"
+            android:textColor="@color/ticco_midgrey"
+            android:textSize="14dp"
+            android:visibility="@{vm.isModify() == true ? View.INVISIBLE : View.VISIBLE, default = visible  }"
+            android:fontFamily="@font/pretendard_medium"
+            android:includeFontPadding="false"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="16dp"
+            android:includeFontPadding="false"
+            android:layout_marginHorizontal="22dp"
+            android:enabled="@{vm.isModify() == true ? true : false}"
+            android:onClick="@{() -> vm.editUserInfo()}"
+            android:background="@{vm.isModify() == true ? @drawable/bg_rectangle_12_black : @drawable/bg_rectangle_r12_midgrey}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/mypage_save"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

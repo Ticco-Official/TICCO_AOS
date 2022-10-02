@@ -4,6 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <import type="android.view.View" />
+        <variable
+            name="vm"
+            type="org.android.ticco.presentation.home.HomeViewModel" />
 
     </data>
 
@@ -23,6 +27,7 @@
             android:layout_marginStart="22dp"/>
 
         <ImageView
+            android:id="@+id/iv_mypage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_setting"
@@ -63,6 +68,42 @@
             android:src="@drawable/ic_arrow_bottom"
             app:layout_constraintStart_toEndOf="@id/tv_sort"
             app:layout_constraintTop_toTopOf="@+id/tv_sort"/>
+
+        <ImageView
+            android:id="@+id/iv_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_welcome"
+            android:visibility="@{vm.isEmptyTicket().peekContent() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toBottomOf="@id/tv_sort"
+            android:layout_marginTop="95dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_empty"
+            android:visibility="@{vm.isEmptyTicket().peekContent() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toBottomOf="@id/iv_empty"
+            app:layout_constraintStart_toStartOf="@id/iv_empty"
+            app:layout_constraintEnd_toEndOf="@id/iv_empty"
+            android:textAlignment="center"
+            android:layout_marginTop="36dp"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_ticket"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{vm.isEmptyTicket().peekContent() ? View.GONE : View.VISIBLE}"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="24dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_sort" />
 
 
         <androidx.appcompat.widget.AppCompatButton

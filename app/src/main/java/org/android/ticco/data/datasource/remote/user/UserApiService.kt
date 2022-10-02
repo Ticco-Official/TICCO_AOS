@@ -1,9 +1,10 @@
 package org.android.ticco.data.datasource.remote.user
 
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.PUT
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import org.android.ticco.data.datasource.remote.BasicResponse
+import org.android.ticco.data.datasource.remote.user.model.UserResponse
+import retrofit2.http.*
 import java.io.File
 
 
@@ -12,7 +13,14 @@ interface UserApiService {
     @GET("/v1/user/onboarding/check")
     suspend fun checkOnboardingRequest(): CheckOnboardingResponse
 
-    @FormUrlEncoded
+    @GET("/v1/user/onboarding")
+    suspend fun onboardingRequest(): UserResponse
+
+    @Multipart
     @PUT("/v1/user/onboarding")
-    suspend fun updateProfile(@Field("image") image: File?, @Field("nickname") nickname: String): UpdateProfileResponse
+    suspend fun onboardingPost(
+        @PartMap map: Map<String, @JvmSuppressWildcards RequestBody>,
+        @Part image: MultipartBody.Part?
+    ): BasicResponse
+
 }

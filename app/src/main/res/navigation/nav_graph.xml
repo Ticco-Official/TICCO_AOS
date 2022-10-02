@@ -37,4 +37,46 @@
         android:name="org.android.ticco.presentation.join.JoinFragment"
         android:label="JoinFragment" />
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="org.android.ticco.presentation.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myPageFragment"
+        android:name="org.android.ticco.presentation.mypage.MyPageFragment"
+        android:label="MyPageFragment" >
+        <action
+            android:id="@+id/action_myPageFragment_to_myPageTosFragment"
+            app:destination="@id/myPageTosFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_myPageVersionFragment"
+            app:destination="@id/myPageVersionFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_myPageEditInfoFragment"
+            app:destination="@id/myPageEditInfoFragment" />
+        <action
+            android:id="@+id/action_myPageFragment_to_myPageServiceFragment"
+            app:destination="@id/myPageServiceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myPageTosFragment"
+        android:name="org.android.ticco.presentation.mypage.MyPageTosFragment"
+        android:label="MyPageTosFragment" />
+    <fragment
+        android:id="@+id/myPageVersionFragment"
+        android:name="org.android.ticco.presentation.mypage.MyPageVersionFragment"
+        android:label="MyPageVersionFragment" />
+    <fragment
+        android:id="@+id/myPageServiceFragment"
+        android:name="org.android.ticco.presentation.mypage.MyPageServiceFragment"
+        android:label="MyPageServiceFragment" />
+    <fragment
+        android:id="@+id/myPageEditInfoFragment"
+        android:name="org.android.ticco.presentation.mypage.MyPageEditInfoFragment"
+        android:label="MyPageEditInfoFragment" />
 </navigation>
