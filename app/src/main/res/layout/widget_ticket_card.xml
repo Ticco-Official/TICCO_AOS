@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ticket_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include android:id="@+id/card_view_front"
+        layout="@layout/widget_ticket_card_front"/>
+    <include
+        android:id="@+id/card_view_back"
+        layout="@layout/widget_ticket_card_back"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

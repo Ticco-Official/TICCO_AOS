@@ -1,14 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".presentation.createticket.TicketDateFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="내 감정을 글로 기록하고 싶다면\n자유롭게 작성해주세요"
+            android:textSize="24sp"
+            android:fontFamily="@font/pretendard_bold"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textImeMultiLine"
+            android:minHeight="260dp"
+            android:padding="20dp"
+            android:background="@drawable/bg_rectangle_r10_white_border_lightgrey"
+            android:hint="누구와 함께했나요?\n무엇을 보았나요?\n보면서 무엇을 느꼈나요?\n앞으로의 나에게 어떤 영향을 미칠 수 있을까요?"
+            android:gravity="top|start"
+            app:layout_constraintTop_toBottomOf="@id/tv_description"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/et_content"
+            app:layout_constraintEnd_toEndOf="@id/et_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp"
+            tools:text="0/200"/>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/bg_rectangle_12_black"
+            android:text="입력 완료"
+            android:textColor="@color/white"
+            android:fontFamily="@font/pretendard_semibold"
+            app:layout_constraintBottom_toTopOf="@id/tv_ignore_content"
+            />
+
+        <TextView
+            android:id="@+id/tv_ignore_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="글 안쓰고 넘어가기"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

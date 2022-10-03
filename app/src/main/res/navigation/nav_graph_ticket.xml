@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_ticket"
+    app:startDestination="@id/ticketDateFragment">
+
+    <fragment
+        android:id="@+id/ticketDateFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketDateFragment"
+        android:label="TicketDateFragment">
+        <action
+            android:id="@+id/action_ticketDateFragment_to_ticketCategoryFragment"
+            app:destination="@id/ticketCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketCategoryFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketCategoryFragment"
+        android:label="TicketCategoryFragment" >
+        <action
+            android:id="@+id/action_ticketCategoryFragment_to_ticketTitleFragment"
+            app:destination="@id/ticketTitleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketTitleFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketTitleFragment"
+        android:label="TicketTitleFragment" >
+        <action
+            android:id="@+id/action_ticketTitleFragment_to_ticketDateFragment"
+            app:destination="@id/ticketDateFragment" />
+        <action
+            android:id="@+id/action_ticketTitleFragment_to_ticketCategoryFragment"
+            app:destination="@id/ticketCategoryFragment" />
+        <action
+            android:id="@+id/action_ticketTitleFragment_to_ticketScoreFragment"
+            app:destination="@id/ticketScoreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketContentFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketContentFragment"
+        android:label="TicketContentFragment" >
+        <action
+            android:id="@+id/action_ticketContentFragment_to_ticketPictureFragment"
+            app:destination="@id/ticketPictureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketPictureFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketPictureFragment"
+        android:label="TicketPictureFragment" >
+        <action
+            android:id="@+id/action_ticketPictureFragment_to_ticketThemeFragment"
+            app:destination="@id/ticketThemeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketPreviewFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketPreviewFragment"
+        android:label="TicketPreviewFragment" />
+    <fragment
+        android:id="@+id/ticketThemeFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketThemeFragment"
+        android:label="TicketThemeFragment" >
+        <action
+            android:id="@+id/action_ticketThemeFragment_to_ticketPreviewFragment"
+            app:destination="@id/ticketPreviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ticketScoreFragment"
+        android:name="org.android.ticco.presentation.createticket.TicketScoreFragment"
+        android:label="TicketScoreFragment" >
+        <action
+            android:id="@+id/action_ticketScoreFragment_to_ticketDateFragment"
+            app:destination="@id/ticketDateFragment" />
+        <action
+            android:id="@+id/action_ticketScoreFragment_to_ticketCategoryFragment"
+            app:destination="@id/ticketCategoryFragment" />
+        <action
+            android:id="@+id/action_ticketScoreFragment_to_ticketTitleFragment"
+            app:destination="@id/ticketTitleFragment" />
+        <action
+            android:id="@+id/action_ticketScoreFragment_to_ticketContentFragment"
+            app:destination="@id/ticketContentFragment" />
+    </fragment>
+</navigation>
