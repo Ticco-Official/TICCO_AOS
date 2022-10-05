@@ -23,6 +23,21 @@
     <string name="home_all">전체</string>
     <string name="home_sort_latest">최신순</string>
     <string name="home_ticket">티켓 만들기</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="existing_user_comment">로그인이 완료되었어요\n다시 한 번 돌아온걸 환영해요!</string>
+    <string name="permission_gallery">gallery</string>
+    <string name="permission_camera">camera</string>
+    <string name="permission_sub_title">꼭 필요한 권한만 받아요</string>
+    <string name="permission_title">더욱 편리한 티코 이용을 위해\n접근 권한을 허용해주세요</string>
+    <string name="permission_camera_text">카메라 (선택)</string>
+    <string name="permission_camera_sub_text">티켓 등록을 위한 촬영을 위해 이용</string>
+    <string name="permission_gallery_text">사진 (선택)</string>
+    <string name="permission_gallery_sub_text">티켓 등록을 위한 촬영, 티켓 이미지 저장을 위해 이용</string>
+    <string name="permission_description">위 접근 권한은 더 나은 서비스를 제공하기 위해 사용됩니다.\n 허용에 동의하지 않으셔도 티코를 이용할 수 있으며\n 접근 권한 미동의 시, 일부 기능이 제한될 수 있습니다</string>
+    <string name="permission_btn_text">확인</string>
+
     <string name="home_empty">티코가 처음이시군요!\n최근에 즐긴 문화생활이 있다면\n티코에서 나만의 티켓을 만들어봐요!</string>
     <!-- MyPage -->
     <string name="mypage_title">마이페이지</string>
@@ -39,4 +54,5 @@
     <string name="mypage_confirm">확인</string>
     <string name="mypage_version_description">현재 최신버전 사용 중입니다</string>
     <string name="mypage_version">최신버전 1.1</string>
+
 </resources>

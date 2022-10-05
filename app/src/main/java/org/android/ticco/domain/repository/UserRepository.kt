@@ -18,4 +18,5 @@ interface UserRepository {
     suspend fun onBoardingRequest(): User
 
     suspend fun onBoardingPost(image: MultipartBody.Part?, nickname: String): BasicResponse
+
 }
