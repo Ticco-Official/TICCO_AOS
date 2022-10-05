@@ -4,6 +4,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import kotlinx.coroutines.flow.Flow
+import org.android.ticco.data.datasource.remote.BasicResponse
 import org.android.ticco.data.datasource.remote.ticket.model.TicketDto
 import org.android.ticco.domain.datasource.remote.TicketRemoteDataSource
 import org.android.ticco.presentation.util.TicketPagingSource
@@ -24,5 +25,7 @@ class TicketRemoteDataSourceImpl @Inject constructor(
                 TicketPagingSource(category = category, sort = sort, service)
             }
         ).flow
+
+    override suspend fun deleteTicket(ticketId: Int): BasicResponse = service.deleteTicket(ticketId)
 
 }

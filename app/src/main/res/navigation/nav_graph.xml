@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/onboardingFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/onboardingFragment"
@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_homeFragment_to_myPageFragment"
             app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_ticketSaveFragment"
+            app:destination="@id/ticketSaveFragment" />
     </fragment>
     <fragment
         android:id="@+id/myPageFragment"
@@ -52,4 +55,8 @@
         android:id="@+id/myPageEditInfoFragment"
         android:name="org.android.ticco.presentation.mypage.MyPageEditInfoFragment"
         android:label="MyPageEditInfoFragment" />
+    <fragment
+        android:id="@+id/ticketSaveFragment"
+        android:name="org.android.ticco.presentation.home.TicketSaveFragment"
+        android:label="TicketSaveFragment" />
 </navigation>

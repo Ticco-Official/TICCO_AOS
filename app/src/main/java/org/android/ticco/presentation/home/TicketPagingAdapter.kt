@@ -1,22 +1,37 @@
 package org.android.ticco.presentation.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.item_ticket.view.*
 import org.android.ticco.databinding.ItemTicketBinding
 import org.android.ticco.domain.model.Ticket
 
 class TicketPagingAdapter :
     PagingDataAdapter<Ticket, TicketPagingAdapter.TicketViewHolder>(TicketDiffUtil) {
 
-    class TicketViewHolder(
+    private lateinit var itemSetClickListener: OnItemSetClickListener
+
+    interface OnItemSetClickListener {
+        fun onSetClick(v: View, id: Int)
+    }
+
+    fun setItemSetClickListner(onItemSetClickListener: OnItemSetClickListener) {
+        this.itemSetClickListener = onItemSetClickListener
+    }
+
+    inner class TicketViewHolder(
         private val binding: ItemTicketBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(ticket: Ticket) {
             binding.ticket = ticket
             binding.executePendingBindings()
+            binding.ivTicket.setOnClickListener {
+                itemSetClickListener.onSetClick(it,ticket.id)
+            }
         }
     }
 

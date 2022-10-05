@@ -1,21 +1,21 @@
 package org.android.ticco.presentation.home
 
+import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
-import androidx.paging.map
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.launch
 import org.android.ticco.R
+import org.android.ticco.TiccoApplication.Companion.preferences
 import org.android.ticco.databinding.FragmentHomeBinding
 import org.android.ticco.presentation.base.BaseFragment
-import org.android.ticco.presentation.util.Event
+
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
@@ -26,13 +26,33 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     override fun initView() {
         binding.vm = homeViewModel
         setListeners()
-        initTicketData()
         initTicketViewPager()
         initTicketObserver()
+        setTicketAdapterClickLister()
+        Log.d("TAG", "initView: ${preferences.accessToken}")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        initTicketData()
     }
 
     private fun setListeners() {
         binding.ivMypage.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_myPageFragment) }
+        binding.tvCategory.setOnClickListener {setTicketCategoryFragment()}
+        binding.ivCategory.setOnClickListener {setTicketCategoryFragment()}
+        binding.tvSort.setOnClickListener { TicketSortFragment().show(childFragmentManager,HomeFragment().tag) }
+    }
+
+    private fun setTicketCategoryFragment() {
+        val bottomSheet = TicketCategoryFragment()
+        bottomSheet.setCallback(object : TicketCategoryFragment.OnSendFromBottomSheetDialog {
+            override fun sendValue(value: String) {
+                homeViewModel.ticketCategory.value = value.lowercase()
+                homeViewModel.requestTickets()
+            }
+        })
+        bottomSheet.show(childFragmentManager,HomeFragment().tag)
     }
 
     private fun initTicketData() {
@@ -43,9 +63,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.requestTickets().collectLatest {
                 ticketPagingAdapter.submitData(it)
+                Log.d("TAG", "asdfasdfas : $it")
             }
             ticketPagingAdapter.loadStateFlow.collect {
-                homeViewModel.isEmptyTicket.postValue(if(ticketPagingAdapter.snapshot().size==0) Event(true) else Event(false))
+                homeViewModel.isEmptyTicket.postValue(ticketPagingAdapter.snapshot().size==0)
             }
         }
     }
@@ -65,6 +86,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 page.translationY = position * -offsetPx
             }
         }
+    }
+
+    private fun setTicketAdapterClickLister() {
+        ticketPagingAdapter.setItemSetClickListner(object : TicketPagingAdapter.OnItemSetClickListener{
+            override fun onSetClick(v: View, id: Int) {
+                val args = Bundle()
+                args.putInt("id", id)
+                val bottomSheet =TicketEtcFragment()
+                bottomSheet.arguments = args
+                bottomSheet.show(childFragmentManager,HomeFragment().tag)
+            }
+
+        })
     }
 
 }

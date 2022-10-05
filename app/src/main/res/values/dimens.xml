@@ -3,4 +3,6 @@
     <dimen name="pageMargin">62dp</dimen>
     <dimen name="pageHeight">451dp</dimen>
     <dimen name="screenHeight">120dp</dimen>
+    <dimen name="dialogWidth">316dp</dimen>
+    <dimen name="dialogHeight">204dp</dimen>
 </resources>

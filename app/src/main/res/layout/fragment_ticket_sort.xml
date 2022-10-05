@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        tools:context=".presentation.home.TicketSortFragment">
+
+        <TextView
+            android:id="@+id/tv_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="정렬"
+            android:fontFamily="@font/pretendard_bold"
+            android:includeFontPadding="false"
+            android:textSize="22dp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="28dp"
+            android:layout_marginStart="22dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_latest"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_sort"
+            android:layout_marginTop="22dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최신순"
+                android:fontFamily="@font/pretendard_bold"
+                android:includeFontPadding="false"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_pink"
+                android:layout_marginEnd="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_past"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_latest">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="과거순"
+                android:fontFamily="@font/pretendard_bold"
+                android:includeFontPadding="false"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_marginStart="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_pink"
+                android:layout_marginEnd="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_high_score"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_past">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="별점 높은순"
+                android:layout_marginStart="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_pink"
+                android:layout_marginEnd="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_low_score"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_marginBottom="22dp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_high_score">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:text="별점 낮은순"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="22dp"
+                android:src="@drawable/ic_check_pink"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_close"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:text="닫기"
+            android:layout_marginBottom="20dp"
+            android:layout_marginStart="22dp"
+            app:layout_constraintEnd_toStartOf="@id/btn_selected"
+            android:background="@drawable/bg_rectangle_r12_midgrey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_selected"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:text="선택 완료"
+            app:layout_constraintHorizontal_weight="1.3"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="22dp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@id/btn_close"
+            android:background="@drawable/bg_rectangle_12_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
