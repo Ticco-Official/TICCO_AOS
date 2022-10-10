@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="vm"
+            type="org.android.ticco.presentation.home.HomeViewModel" />
 
     </data>
 
@@ -17,7 +20,7 @@
             android:id="@+id/tv_sort"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="정렬"
+            android:text="@string/home_sort"
             android:fontFamily="@font/pretendard_bold"
             android:includeFontPadding="false"
             android:textSize="22dp"
@@ -31,6 +34,7 @@
             android:id="@+id/cl_latest"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:onClick="@{vm::setSort}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_sort"
@@ -39,11 +43,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="최신순"
-                android:fontFamily="@font/pretendard_bold"
+                android:text="@string/home_latest"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
-                android:textColor="@color/black"
+                android:categoryTextFont ="@{vm.ticketSort}"
+                android:textColor="@{vm.ticketSort == `최신순` ? @color/black : @color/ticco_midgrey2, default = @color/black}"
                 android:layout_marginStart="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +56,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_check_pink"
+                android:src="@{vm.ticketSort == `최신순` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_pink }"
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +68,7 @@
             android:id="@+id/cl_past"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:onClick="@{vm::setSort}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_latest">
@@ -71,11 +76,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="과거순"
-                android:fontFamily="@font/pretendard_bold"
+                android:text="@string/home_past"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
-                android:textColor="@color/black"
+                android:categoryTextFont ="@{vm.ticketSort}"
+                android:textColor="@{vm.ticketSort == `과거순` ? @color/black : @color/ticco_midgrey2, default = @color/black}"
                 android:layout_marginStart="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +89,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_check_pink"
+                android:src="@{vm.ticketSort == `과거순` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_pink }"
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -96,6 +101,7 @@
             android:id="@+id/cl_high_score"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:onClick="@{vm::setSort}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_past">
@@ -103,7 +109,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="별점 높은순"
+                android:text="@string/home_high_score"
+                android:includeFontPadding="false"
+                android:textSize="18dp"
+                android:categoryTextFont ="@{vm.ticketSort}"
+                android:textColor="@{vm.ticketSort == `별점 높은순` ? @color/black : @color/ticco_midgrey2, default = @color/black}"
                 android:layout_marginStart="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -112,7 +122,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_check_pink"
+                android:src="@{vm.ticketSort == `별점 높은순` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_pink }"
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,6 +134,7 @@
             android:id="@+id/cl_low_score"
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:onClick="@{vm::setSort}"
             android:layout_marginBottom="22dp"
             app:layout_constraintBottom_toTopOf="@+id/btn_close"
             app:layout_constraintEnd_toEndOf="parent"
@@ -134,7 +145,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
-                android:text="별점 낮은순"
+                android:text="@string/home_low_score"
+                android:includeFontPadding="false"
+                android:textSize="18dp"
+                android:categoryTextFont ="@{vm.ticketSort}"
+                android:textColor="@{vm.ticketSort == `별점 낮은순` ? @color/black : @color/ticco_midgrey2, default = @color/black}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -143,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="22dp"
-                android:src="@drawable/ic_check_pink"
+                android:src="@{vm.ticketSort == `별점 낮은순` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_pink }"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -157,8 +172,12 @@
             android:layout_width="0dp"
             android:layout_height="55dp"
             android:layout_marginEnd="12dp"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="16dp"
+            android:includeFontPadding="false"
+            android:textColor="@color/ticco_midgrey2"
             app:layout_constraintHorizontal_weight="1"
-            android:text="닫기"
+            android:text="@string/home_close"
             android:layout_marginBottom="20dp"
             android:layout_marginStart="22dp"
             app:layout_constraintEnd_toStartOf="@id/btn_selected"
@@ -170,7 +189,10 @@
             android:id="@+id/btn_selected"
             android:layout_width="0dp"
             android:layout_height="55dp"
-            android:text="선택 완료"
+            android:text="@string/home_selected"
+            android:fontFamily="@font/pretendard_semibold"
+            android:textSize="16dp"
+            android:includeFontPadding="false"
             app:layout_constraintHorizontal_weight="1.3"
             android:layout_marginBottom="20dp"
             android:layout_marginEnd="22dp"

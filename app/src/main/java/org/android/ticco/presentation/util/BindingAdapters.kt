@@ -1,6 +1,5 @@
 package org.android.ticco.presentation.util
 
-import android.graphics.Typeface
 import android.net.Uri
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,17 +8,17 @@ import com.bumptech.glide.Glide
 import org.android.ticco.R
 
 
-object BindingAdapters{
+object BindingAdapters {
 
     @JvmStatic
     @BindingAdapter("android:profileImgUri")
     fun ImageView.setProfileImg(imgUri: Uri?) {
-            Glide.with(this.context)
-                .load(imgUri)
-                .placeholder(org.android.ticco.R.drawable.ic_profile_circle)
-                .error(org.android.ticco.R.drawable.ic_profile_circle)
-                .circleCrop()
-                .into(this)
+        Glide.with(this.context)
+            .load(imgUri)
+            .placeholder(R.drawable.ic_profile_circle)
+            .error(R.drawable.ic_profile_circle)
+            .circleCrop()
+            .into(this)
 
     }
 
@@ -35,34 +34,34 @@ object BindingAdapters{
     }
 
     @JvmStatic
-    @BindingAdapter("android:categoryCheckColor")
-    fun ImageView.setCheckColor(category: String) {
-        setImageResource(when(category){
-            "","musical","theater","movie" -> R.drawable.ic_check_pink
-            else -> R.drawable.ic_check_pink
-        })
-    }
-
-    @JvmStatic
     @BindingAdapter("android:categoryText")
     fun TextView.setTextCategory(category: String) {
-        text = when(category){
-            "" -> "전체"
-            "musical" ->"뮤지컬"
-            "theater" -> "연극"
-            "movie" -> "영화"
-            "exhibition" -> "전시회"
-            "concert" ->"콘서트"
-            "festival" -> "페스티벌"
-            else -> "전체"
+        text = when (category) {
+            "" -> context.getString(R.string.home_all)
+            context.getString(R.string.home_musical_en) -> context.getString(R.string.home_musical)
+            context.getString(R.string.home_theater_en) -> context.getString(R.string.home_theater)
+            context.getString(R.string.home_movie_en) -> context.getString(R.string.home_movie)
+            context.getString(R.string.home_concert_en) -> context.getString(R.string.home_concert)
+            context.getString(R.string.home_exhibition_en) -> context.getString(R.string.home_exhibition)
+            context.getString(R.string.home_festival_en) -> context.getString(R.string.home_festival)
+            else -> context.getString(R.string.home_all)
         }
     }
 
     @JvmStatic
     @BindingAdapter("android:categoryTextFont")
-    fun TextView.setTextFont(category: String) {
-        typeface = when(category){
-            "","musical","theater","movie","exhibition","concert","festival" -> resources.getFont(R.font.pretendard_bold)
+    fun TextView.setTextFont(category: String?) {
+        typeface = when (category) {
+            "",
+            context.getString(R.string.home_musical_en),
+            context.getString(R.string.home_theater),
+            context.getString(R.string.home_movie_en),
+            context.getString(R.string.home_exhibition_en),
+            context.getString(R.string.home_concert_en),
+            context.getString(R.string.home_festival_en),
+            context.getString(R.string.home_past),
+            context.getString(R.string.home_high_score),
+            context.getString(R.string.home_low_score) -> resources.getFont(R.font.pretendard_bold)
             else -> resources.getFont(R.font.pretendard_semibold)
         }
     }

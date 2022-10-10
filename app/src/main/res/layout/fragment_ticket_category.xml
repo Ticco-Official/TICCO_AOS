@@ -82,7 +82,7 @@
                 android:categoryTextFont ="@{vm.ticketCategory}"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
-                android:textColor="@{vm.ticketCategory == `musical` ? @color/black : @color/ticco_midgrey2}"
+                android:textColor="@{vm.ticketCategory == `MUSICAL` ? @color/black : @color/ticco_midgrey2}"
                 android:layout_marginStart="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,7 +91,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@{vm.ticketCategory == `musical` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
+                android:src="@{vm.ticketCategory == `MUSICAL` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -115,7 +115,7 @@
                 android:categoryTextFont ="@{vm.ticketCategory}"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
-                android:textColor="@{vm.ticketCategory == `theater` ? @color/black : @color/ticco_midgrey2}"
+                android:textColor="@{vm.ticketCategory == `THEATER` ? @color/black : @color/ticco_midgrey2}"
                 android:layout_marginStart="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +124,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@{vm.ticketCategory == `theater` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
+                android:src="@{vm.ticketCategory == `THEATER` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +148,7 @@
                 android:categoryTextFont ="@{vm.ticketCategory}"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
-                android:textColor="@{vm.ticketCategory == `movie` ? @color/black : @color/ticco_midgrey2}"
+                android:textColor="@{vm.ticketCategory == `MOVIE` ? @color/black : @color/ticco_midgrey2}"
                 android:layout_marginStart="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -157,7 +157,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@{vm.ticketCategory == `movie` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
+                android:src="@{vm.ticketCategory == `MOVIE` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
 
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -179,7 +179,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="전시회"
-                android:textColor="@{vm.ticketCategory == `exhibition` ? @color/black : @color/ticco_midgrey2}"
+                android:textColor="@{vm.ticketCategory == `EXHIBITION` ? @color/black : @color/ticco_midgrey2}"
                 android:categoryTextFont ="@{vm.ticketCategory}"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
@@ -191,7 +191,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@{vm.ticketCategory == `exhibition` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
+                android:src="@{vm.ticketCategory == `EXHIBITION` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
 
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -213,7 +213,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="콘서트"
-                android:textColor="@{vm.ticketCategory == `concert` ? @color/black : @color/ticco_midgrey2}"
+                android:textColor="@{vm.ticketCategory == `CONCERT` ? @color/black : @color/ticco_midgrey2}"
                 android:categoryTextFont ="@{vm.ticketCategory}"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
@@ -225,7 +225,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@{vm.ticketCategory == `concert` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
+                android:src="@{vm.ticketCategory == `CONCERT` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
 
                 android:layout_marginEnd="22dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -250,7 +250,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:text="페스티벌"
-                android:textColor="@{vm.ticketCategory == `festival` ? @color/black : @color/ticco_midgrey2}"
+                android:textColor="@{vm.ticketCategory == `FESTIVAL` ? @color/black : @color/ticco_midgrey2}"
                 android:categoryTextFont ="@{vm.ticketCategory}"
                 android:includeFontPadding="false"
                 android:textSize="18dp"
@@ -262,7 +262,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="22dp"
-                android:src="@{vm.ticketCategory == `festival` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
+                android:src="@{vm.ticketCategory == `FESTIVAL` ? @drawable/ic_check_pink : @drawable/ic_check_lightgrey_2, default =@drawable/ic_check_lightgrey_2 }"
 
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

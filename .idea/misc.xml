@@ -13,7 +13,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/custom_snackbar.xml" value="0.20729166666666668" />
         <entry key="app/src/main/res/layout/dialog_util.xml" value="0.18333333333333332" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_join.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.3729166666666667" />
         <entry key="app/src/main/res/layout/fragment_my_page_edit_info.xml" value="0.3578125" />
         <entry key="app/src/main/res/layout/fragment_my_page_service.xml" value="0.3578125" />
@@ -21,7 +22,7 @@
         <entry key="app/src/main/res/layout/fragment_my_page_version.xml" value="0.3578125" />
         <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/layout/fragment_onboarding_one.xml" value="0.3729166666666667" />
-        <entry key="app/src/main/res/layout/fragment_ticket_category.xml" value="0.3729166666666667" />
+        <entry key="app/src/main/res/layout/fragment_ticket_category.xml" value="0.24129353233830847" />
         <entry key="app/src/main/res/layout/fragment_ticket_etc.xml" value="0.3578125" />
         <entry key="app/src/main/res/layout/fragment_ticket_save.xml" value="0.3578125" />
         <entry key="app/src/main/res/layout/fragment_ticket_sort.xml" value="0.3578125" />
@@ -29,6 +30,7 @@
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

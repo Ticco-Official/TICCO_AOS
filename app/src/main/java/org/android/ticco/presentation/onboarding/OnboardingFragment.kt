@@ -1,20 +1,14 @@
 package org.android.ticco.presentation.onboarding
-
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.viewpager2.widget.ViewPager2
+import androidx.navigation.NavDirections
+import androidx.navigation.findNavController
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 import org.android.ticco.R
 import org.android.ticco.data.datasource.remote.auth.AuthRequest
 import org.android.ticco.databinding.FragmentOnboardingBinding
@@ -24,6 +18,9 @@ import org.android.ticco.presentation.base.BaseFragment
 class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(R.layout.fragment_onboarding) {
 
     private val viewModel by viewModels<OnboardingViewModel>()
+
+    private val actionTrue: NavDirections = OnboardingFragmentDirections.actionOnboardingFragmentToExistingUserFragment()
+    private val actionFalse: NavDirections = OnboardingFragmentDirections.actionOnboardingFragmentToJoinFragment()
 
     override fun initView() {
         binding.apply {
@@ -41,7 +38,7 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(R.layout.frag
         }
     }
 
-    val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
+    private val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
         if (error != null) {
             Log.e("login", "카카오계정으로 로그인 실패", error)
         } else if (token != null) {
@@ -78,7 +75,16 @@ class OnboardingFragment : BaseFragment<FragmentOnboardingBinding>(R.layout.frag
     private fun collectFlow() {
         lifecycleScope.launchWhenCreated {
             viewModel.isLoggedIn.collect {
-                Log.d("온보딩", it.toString())
+                //Log.d("온보딩", it.toString())
+                when(it){
+                    true -> {
+                        requireView().findNavController().navigate(actionTrue)
+                    }
+                    false -> {
+                        requireView().findNavController().navigate(actionFalse)
+                    }
+                    else -> {}
+                }
             }
         }
     }

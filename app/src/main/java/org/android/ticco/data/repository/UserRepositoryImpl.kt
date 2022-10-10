@@ -8,6 +8,7 @@ import org.android.ticco.domain.datasource.remote.UserRemoteDataSource
 import org.android.ticco.domain.model.CheckOnboarding
 import org.android.ticco.domain.model.User
 import org.android.ticco.domain.repository.UserRepository
+import java.io.File
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
@@ -19,11 +20,9 @@ class UserRepositoryImpl @Inject constructor(
     override suspend fun onBoardingRequest(): User =
         userRemoteDataSource.onBoardingRequest().toEntity()
 
-
     override suspend fun onBoardingPost(
         image: MultipartBody.Part?,
         nickname: String
     ): BasicResponse =
         userRemoteDataSource.onBoardingPost(image, nickname)
-
 }

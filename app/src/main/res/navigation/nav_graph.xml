@@ -3,13 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/permissionFragment">
+
+    <fragment
+        android:id="@+id/permissionFragment"
+        android:name="org.android.ticco.presentation.join.PermissionFragment"
+        android:label="PermissionFragment" >
+        <action
+            android:id="@+id/action_permissionFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="org.android.ticco.presentation.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" />
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_existingUserFragment"
+            app:destination="@id/existingUserFragment" />
+        <action
+            android:id="@+id/action_onboardingFragment_to_joinFragment"
+            app:destination="@id/joinFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/existingUserFragment"
+        android:name="org.android.ticco.presentation.join.ExistingUserFragment"
+        android:label="ExistingUserFragment" >
+        <action
+            android:id="@+id/action_existingUserFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/joinFragment"
+        android:name="org.android.ticco.presentation.join.JoinFragment"
+        android:label="JoinFragment" >
+        <action
+            android:id="@+id/action_joinFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="org.android.ticco.presentation.home.HomeFragment"
@@ -58,5 +98,9 @@
     <fragment
         android:id="@+id/ticketSaveFragment"
         android:name="org.android.ticco.presentation.home.TicketSaveFragment"
-        android:label="TicketSaveFragment" />
+        android:label="TicketSaveFragment" >
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>
