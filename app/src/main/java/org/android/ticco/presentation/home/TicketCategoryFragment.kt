@@ -36,6 +36,7 @@ class TicketCategoryFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.vm = homeViewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
         setBottomSheetHeight()
         setCloseClickListener()
     }
@@ -43,7 +44,6 @@ class TicketCategoryFragment : BottomSheetDialogFragment() {
     private fun setCloseClickListener() {
         binding.btnClose.setOnClickListener { dismiss() }
         binding.btnSelected.setOnClickListener {
-            Log.d("TAG", "initView22: ${homeViewModel.ticketCategory.value}")
             listener?.sendValue(homeViewModel.ticketCategory.value ?: "")
             dismiss()
         }

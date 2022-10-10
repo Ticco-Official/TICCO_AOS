@@ -40,6 +40,7 @@ class TicketEtcFragment(
         super.onViewCreated(view, savedInstanceState)
         binding.vm = homeViewModel
         binding.lifecycleOwner = viewLifecycleOwner
+
         setBottomSheet()
         setListeners()
     }
@@ -82,7 +83,6 @@ class TicketEtcFragment(
             android.Manifest.permission.READ_EXTERNAL_STORAGE,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
-
         ActivityCompat.requestPermissions(requireActivity(), permissionStorage, 1)
     }
 
