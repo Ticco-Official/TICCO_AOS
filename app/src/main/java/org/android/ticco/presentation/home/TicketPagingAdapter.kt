@@ -28,8 +28,9 @@ class TicketPagingAdapter :
         fun bind(ticket: Ticket, position: Int) {
             binding.ticket = ticket
             binding.executePendingBindings()
-            binding.ivTicket.setOnClickListener {
+            binding.ivTicket.setOnLongClickListener {
                 itemSetClickListener.onSetClick(it, ticket.id, ticket.image, position)
+                return@setOnLongClickListener true
             }
         }
     }
