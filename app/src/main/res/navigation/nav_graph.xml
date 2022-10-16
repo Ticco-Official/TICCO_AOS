@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_homeFragment_to_myPageFragment"
             app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_ticketSaveFragment"
+            app:destination="@id/ticketSaveFragment" />
     </fragment>
     <fragment
         android:id="@+id/myPageFragment"
@@ -92,4 +95,12 @@
         android:id="@+id/myPageEditInfoFragment"
         android:name="org.android.ticco.presentation.mypage.MyPageEditInfoFragment"
         android:label="MyPageEditInfoFragment" />
+    <fragment
+        android:id="@+id/ticketSaveFragment"
+        android:name="org.android.ticco.presentation.home.TicketSaveFragment"
+        android:label="TicketSaveFragment" >
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>

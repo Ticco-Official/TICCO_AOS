@@ -10,7 +10,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GetTicketsUserCase @Inject constructor(
+class GetTicketsUseCase @Inject constructor(
     private val ticketRepository: TicketRepository
 ) {
 

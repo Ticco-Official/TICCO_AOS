@@ -5,6 +5,7 @@ import androidx.paging.map
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import org.android.ticco.data.datasource.remote.BasicResponse
 import org.android.ticco.domain.datasource.remote.TicketRemoteDataSource
 import org.android.ticco.domain.model.Ticket
 import org.android.ticco.domain.repository.TicketRepository
@@ -20,6 +21,8 @@ class TicketRepositoryImpl @Inject constructor(
         sort: Array<String>
     ): Flow<PagingData<Ticket>> =
         dataSource.getTicketsList(category, size, sort).map { it.map { value -> value.toTicket() }}
+
+    override suspend fun deleteTicket(ticketId: Int): BasicResponse = dataSource.deleteTicket(ticketId)
 
 
 }
